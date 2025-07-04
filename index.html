@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-50">
+    <div class="max-w-4xl mx-auto py-8 px-4">
+      <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+        📋 Todo List App
+      </h1>
+
+      <form id="addTodoForm" class="mb-6">
+        <div class="flex gap-2">
+          <input
+            type="text"
+            id="newTodo"
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Add a new task..."
+            required
+          />
+          <button
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+            type="submit"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+
+      <!-- Search and Filter -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="md:col-span-1">
+          <input
+            type="text"
+            id="searchInput"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Search by task name..."
+          />
+        </div>
+        <div>
+          <input
+            type="date"
+            id="fromDate"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        <div>
+          <input
+            type="date"
+            id="toDate"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+      </div>
+
+      <!-- Todo List -->
+      <div id="todoList" class="space-y-2 mb-6"></div>
+
+      <!-- Pagination -->
+      <nav>
+        <ul class="flex justify-center space-x-2" id="pagination"></ul>
+      </nav>
+
+      <!-- Loading and Error States-->
+      <div id="loading" class="text-center my-6 hidden">
+        <div
+          class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
+        ></div>
+      </div>
+      <div
+        id="error"
+        class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-center hidden"
+      ></div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
